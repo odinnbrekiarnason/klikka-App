@@ -11,6 +11,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,15 +24,24 @@ class _HomeScreenState extends State<HomeScreen> {
           itemCount: movieList.length,
           itemBuilder: (context, index) {
             return MovieCard(
-              movieList[index].title,
-             movieList[index].imageUrl);
+              movieList[index]
+              );
           } ,
         ),
       )
     ),
-    theme: ThemeData(
-      primarySwatch: Colors.blue,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
+    theme: isDarkMode ? 
+    ThemeData.dark().copyWith(
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+      ),
+      scaffoldBackgroundColor: Colors.black,
+    ) : ThemeData.light().copyWith(
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+      ),
     ),
     );
   }

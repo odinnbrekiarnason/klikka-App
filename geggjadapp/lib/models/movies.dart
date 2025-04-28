@@ -7,8 +7,11 @@ class Movie {
   String id;
   String description;
   String genre;
+  String startTime;
 
-  Movie({required this.title, 
+  Movie({
+  required this.startTime,
+  required this.title, 
   required this.imageUrl, 
   required this.releaseDate, 
   required this.id, 
